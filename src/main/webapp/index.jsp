@@ -6,7 +6,6 @@
 
    用户名： <input type="text" /><br>
     密码：<input type="text" /><br>
-    杀毒和内裤
     <input type="submit" value="提交"/>
 </form>
 
