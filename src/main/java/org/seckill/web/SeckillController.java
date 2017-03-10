@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2017/3/9.
@@ -108,9 +110,21 @@ public class SeckillController {
      * @return
      */
     @RequestMapping(value = "/now/time",method = RequestMethod.GET)
-    public SeckillResult<Long> getNowTime(){
+    public @ResponseBody Map<String,Object> getNowTime(){
+        Map<String,Object> json=new HashMap<String, Object>();
         Date time=new Date();
-        return new SeckillResult<Long>(true,time.getTime());
+        SeckillResult<Long> seckillResult=new SeckillResult(true,time.getTime());
+        json.put("seckillResult",seckillResult);
+        return json;
+    }
+
+
+    @RequestMapping("/test")
+    public @ResponseBody Map<String,Object> test(){
+        Map<String,Object> json=new HashMap<String, Object>();
+        json.put("user","zhangsan");
+        json.put("pwd","123456");
+        return json;
     }
 
 }
